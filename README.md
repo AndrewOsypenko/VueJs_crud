@@ -3,10 +3,10 @@
 
 ## Project setup
 ```
-npm install
+YARN
 ```
 
-### Compiles for development
+### Compiles for development and start dev server
 ```
-npx webpack
+yarn run start
 ```
