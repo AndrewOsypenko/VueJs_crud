@@ -1,28 +1,29 @@
 import axios from "axios";
+axios.defaults.baseURL = 'http://127.0.0.1:3000';
 
 export default {
     actions: {
-        async getAll(ctx) {
-            axios.get("http://127.0.0.1:3000")
+        async getAll({commit}) {
+            axios.get("/tasks")
                 .then(response => {
-                    ctx.commit('setTodo', response.data)
+                    commit('setTodo', response.data)
                 });
         },
-        async addTodo(ctx, title) {
-            axios.post("http://127.0.0.1:3000", {title})
+        async addTodo({dispatch }, title) {
+            axios.post("/tasks", {title})
                 .then(response => {
-                    ctx.dispatch('getAll');
+                    dispatch('getAll');
                 });
         },
         async updateTodo(ctx, data) {
             console.log(data)
-            axios.patch(`http://127.0.0.1:3000/${data.id}`, {title : data.title})
+            axios.patch(`/tasks/${data.id}`, {title : data.title})
                 .then(response => {
                     ctx.dispatch('getAll');
                 });
         },
         async removeTodo(ctx, id) {
-            axios.delete(`http://127.0.0.1:3000/${id}`)
+            axios.delete(`/tasks/${id}`)
                 .then(response => {
                     ctx.dispatch('getAll');
                 });
