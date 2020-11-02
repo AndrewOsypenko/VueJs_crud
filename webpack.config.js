@@ -1,6 +1,7 @@
-const path = require('path')
-const VueLoaderPlugin = require('vue-loader/lib/plugin')
+const path = require('path');
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
     context: path.resolve(__dirname, 'src'),
@@ -23,8 +24,9 @@ module.exports = {
                 use: ['vue-style-loader', 'css-loader']
             },
             {
-                test: /\.scss$/,
-                use: ['vue-style-loader', 'css-loader', 'sass-loader']
+                test: /\.(vue|js)$/,
+                exclude: /node_modules/,
+                use: ["eslint-loader"]
             }
         ]
     },
@@ -33,7 +35,8 @@ module.exports = {
         new HtmlWebpackPlugin({
             collapseWhitespace: true,
             template: './index.html'
-        })
+        }),
+        new MiniCssExtractPlugin()
     ],
     devServer: {
         contentBase: path.join(__dirname, 'dist'),
