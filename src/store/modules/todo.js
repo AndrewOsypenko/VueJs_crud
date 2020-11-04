@@ -16,7 +16,6 @@ export default {
                 });
         },
         async updateTodo(ctx, data) {
-            console.log(data)
             axios.patch(`/tasks/${data.id}`, {title : data.title})
                 .then(response => {
                     ctx.dispatch('getAll');

@@ -1,12 +1,5 @@
 <template>
-  <li
-    style="
-    justify-content: space-around;
-    display: flex;
-    border: 1px solid #ccc;
-    padding: .5rem 2rem;
-    margin-bottom: 1rem;"
-  >
+  <li>
     <span>
       {{ todo.title }}
     </span>
@@ -51,11 +44,11 @@ export default {
 </script>
 
 <style scoped>
-li {
-  border: 1px solid #ccc;
-  display: flex;
-  justify-content: space-between;
-  padding: .5rem 2rem;
-  margin-bottom: 1rem;
+  li {
+    justify-content: space-around;
+    display: flex;
+    border: 1px solid #ccc;
+    padding: .5rem 2rem;
+    margin-bottom: 1rem;
 }
 </style>

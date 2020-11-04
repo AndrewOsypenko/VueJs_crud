@@ -21,7 +21,7 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                use: ['vue-style-loader', 'css-loader']
+                use: [ MiniCssExtractPlugin.loader , 'css-loader']
             },
             {
                 test: /\.(vue|js)$/,
@@ -36,7 +36,9 @@ module.exports = {
             collapseWhitespace: true,
             template: './index.html'
         }),
-        new MiniCssExtractPlugin()
+        new MiniCssExtractPlugin({
+            filename: 'style.css'
+        })
     ],
     devServer: {
         contentBase: path.join(__dirname, 'dist'),
