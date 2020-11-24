@@ -3,10 +3,18 @@
 
 ## Project setup
 ```
-npm install
+YARN
 ```
 
-### Compiles for development
+### Compiles for development and start dev server
 ```
-npx webpack
+yarn run dev
+```
+### Start cypress
+```
+yarn run cypress:open
+```
+### Start linter
+```
+yarn run lint
 ```
